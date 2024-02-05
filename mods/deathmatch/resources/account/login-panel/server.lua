@@ -171,7 +171,7 @@ function playerLogin(username,password,checksave)
 					setElementDataEx(client, "punishment:date", accountData['punishdate'], true)
 				
 					--Admins serial whitelist
-					if not exports.serialwhitelist:check(client) then
+					--[[if not exports.serialwhitelist:check(client) then
 						triggerClientEvent(client,"set_warning_text",client,"Login","You're not allowed to connect to server from that PC, check UCP.")
 						--REMOVE STAFF PERMISSIONS / MAXIME
 						setElementDataEx(client, "admin_level", 0, true)
@@ -181,7 +181,7 @@ function playerLogin(username,password,checksave)
 						setElementDataEx(client, "scripter_level", 0, true)
 						setElementDataEx(client, "fmt_level", 0, true)
 						return false
-					end
+					end]] -- // RecHost vypnuto UCP
 				
 					exports['report']:reportLazyFix(client)
 				
@@ -371,7 +371,8 @@ function playerRegister(username,password,confirmPassword, email)
 				--START CREATING ACCOUNT.
 				local encryptedPW = "bcrypt_sha256$" .. bcrypt_hashpw(sha256(password):lower(), bcrypt_gensalt(12)) -- 12 work factor // https://github.com/django/django/blob/master/django/contrib/auth/hashers.py#L404
 				local ipAddress = getPlayerIP(client)
-				preparedQuery3 = "INSERT INTO `accounts` SET `username`=?, `password`=?, `email`=?, `registerdate`=NOW(), `ip`=?, `activated`='0' "
+				--preparedQuery3 = "INSERT INTO `accounts` SET `username`=?, `password`=?, `email`=?, `registerdate`=NOW(), `ip`=?, `activated`='0' " // RecHost vypnuto activated na 0
+				preparedQuery3 = "INSERT INTO `accounts` SET `username`=?, `password`=?, `email`=?, `registerdate`=NOW(), `ip`=?, `activated`='1' " -- // RecHost zapnuto activated automatické
 				local userid = dbExec(exports.mysql:getConn("core"), preparedQuery3, username, encryptedPW, email, ipAddress)
 				if userid then
 					triggerClientEvent(client,"accounts:register:complete",client, username, password)
