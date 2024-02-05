@@ -296,14 +296,14 @@ function goFromLoginToSelectionScreen(player)
 	end
 
 	-- Check if player passed application
-	if (getElementData(player, "appstate") or 0) < 3 then
+	--[[if (getElementData(player, "appstate") or 0) < 3 then
 		if exports.integration:isPlayerTrialAdmin(player) or exports.integration:isPlayerSupporter(player) then
 			dbExec( exports.mysql:getConn('mta'), "UPDATE account_details SET appstate=3, appreason=NULL WHERE account_id=? ", getElementData(player,"account:id") )
 		else
 			triggerClientEvent(player,"account:showRules",player, (getElementData(player, "appstate") or 0) )
 			return false
 		end
-	end
+	end]]-- // RUles odebrány -- RecHost
 
 	triggerClientEvent(player, "vehicle_rims", player)
 	if tonumber(getElementData(player, "punishment:points")) > 0 then triggerEvent("points:checkexpiration", player, player) end
