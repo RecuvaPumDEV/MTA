@@ -8,13 +8,13 @@
 	<setting name="@mysql.database" value="ZDE_ZADEJ_NAZEV_DATABAZE" />
 	<setting name="@mysql.username" value="ZDE_ZADEJ_UZIVATELSKE_JMENO_OD_DATABAZE" />
 	<setting name="@mysql.password" value="ZDE_ZADEJ_HESLO_OD_DATABAZE" />
-	<setting name="@mysql.hostname" value="sql.recuvapumdev.eu" />
+	<setting name="@mysql.hostname" value="sql.rechost.eu" />
 	<setting name="@mysql.port" value="3306" />
 
 	<setting name="@mysql.core_database" value="ZDE_ZADEJ_NAZEV_DATABAZE" />
 	<setting name="@mysql.core_username" value="ZDE_ZADEJ_UZIVATELSKE_JMENO_OD_DATABAZE" />
 	<setting name="@mysql.core_password" value="ZDE_ZADEJ_HESLO_OD_DATABAZE" />
-	<setting name="@mysql.core_hostname" value="sql.recuvapumdev.eu" />
+	<setting name="@mysql.core_hostname" value="sql.rechost.eu" />
 	<setting name="@mysql.core_port" value="3306" />
 
 	<!-- UCP Access -->
